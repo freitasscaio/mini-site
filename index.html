@@ -1,27 +1,821 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
-  <link href="/favicon.ico" rel="icon shortcut">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <title>Enter</title>
-  <meta name="description" content="Enter Generated Project" />
-  <meta name="author" content="Enter" />
 
-  <meta property="og:title" content="Enter - chat to build websites & apps" />
-  <meta property="og:description"
-    content="Go from your creative idea to launch your Apps in minutes by Chat and Enter." />
-  <meta property="og:image"
-    content="https://jtrrmltzqcfjkvribmwe.supabase.co/storage/v1/object/public/enter/enter-og-image-square-1.jpeg" />
+  <!-- Título da aba + SEO/compartilhamento -->
+  <title>Caio Freitas | Links</title>
+  <meta name="description" content="Todos os links do Caio Freitas em um só lugar." />
+  <meta name="theme-color" content="#050914" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Caio Freitas | Links" />
+  <meta property="og:description" content="Todos os links do Caio Freitas em um só lugar." />
+  <meta property="og:image" content="https://cdn.enter.pro/resources/uid_100620147/e56427ab-090b-4f.png" />
+  <!-- Favicon "CF" em SVG inline (data URI), sem arquivo externo -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2.5' y='2.5' width='59' height='59' rx='17' fill='%23050914' stroke='%234fb3ff' stroke-width='4'/%3E%3Ctext x='32' y='33' text-anchor='middle' dominant-baseline='central' font-family='Poppins, Arial, sans-serif' font-weight='800' font-size='30' letter-spacing='-0.5' fill='%23dcecff'%3ECF%3C/text%3E%3C/svg%3E" />
+  <!-- Mesmo desenho para o atalho na tela inicial do iPhone -->
+  <link rel="apple-touch-icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050914'/%3E%3Crect x='2.5' y='2.5' width='59' height='59' rx='14' fill='none' stroke='%234fb3ff' stroke-width='4'/%3E%3Ctext x='32' y='33' text-anchor='middle' dominant-baseline='central' font-family='Poppins, Arial, sans-serif' font-weight='800' font-size='30' letter-spacing='-0.5' fill='%23dcecff'%3ECF%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonte arredondada (Poppins) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       1) VARIÁVEIS — troque os valores aqui para mudar todo o visual
+       ============================================================ */
+    :root {
+      --bg: #050914;
+      /* fundo azul bem escuro */
+      --bg-deep: #01030a;
+      /* fundo quase preto (bordas da tela) */
+      --accent: #4fb3ff;
+      /* azul claro de destaque */
+      --accent-strong: #1f8ef0;
+      --accent-soft: rgba(79, 179, 255, .18);
+      /* brilho azul suave */
+      --highlight: #ffb154;
+      /* detalhe laranja/amarelo (hover) */
+      --text: #eaf3ff;
+      --text-muted: #7f95b5;
+      --btn-bg: rgba(255, 255, 255, .045);
+      --btn-bg-hover: rgba(79, 179, 255, .13);
+      --btn-border: rgba(79, 179, 255, .26);
+      --btn-border-hover: rgba(255, 177, 84, .7);
+      --glow: rgba(79, 179, 255, .35);
+      --shadow: 0 10px 30px -14px rgba(0, 0, 0, .9);
+      --radius: 22px;
+      --maxw: 480px;
+      /* largura máxima do conteúdo */
+    }
+
+    /* ============================================================
+       2) BASE
+       ============================================================ */
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100dvh;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(120% 90% at 50% -10%, #0b2545 0%, var(--bg) 45%, var(--bg-deep) 100%);
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px 28px;
+      overflow-x: hidden;
+    }
+
+    /* ============================================================
+       3) FUNDO — ondas tipo mapa topográfico (SVG inline)
+       ============================================================ */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bg svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* movimento bem lento das ondas */
+    .bg__waves {
+      animation: drift 46s ease-in-out infinite alternate;
+      transform-origin: 60% 40%;
+    }
+
+    /* camada escura por cima para dar profundidade às ondas */
+    .bg__veil {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(90% 60% at 50% 12%, rgba(5, 9, 20, 0) 0%, rgba(5, 9, 20, .72) 70%, rgba(1, 3, 10, .95) 100%);
+    }
+
+    /* ============================================================
+       3b) FUNDO GAMER — ícones flutuando + pixels piscando
+       Camada acima do véu e atrás do conteúdo (main tem z-index 2)
+       ============================================================ */
+    .gamefield {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    /* Ícones de games: sobem devagar, com leve rotação e balanço lateral */
+    .gamefield__item {
+      position: absolute;
+      bottom: -90px;
+      left: var(--x, 50%);
+      width: var(--size, 32px);
+      height: var(--size, 32px);
+      opacity: var(--alpha, .12);
+      will-change: transform, opacity;
+      animation: floatUp var(--dur, 26s) linear var(--delay, 0s) infinite;
+    }
+
+    .gamefield__item svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Pixels quadrados piscando suavemente */
+    .gamefield__pixel {
+      position: absolute;
+      left: var(--x, 50%);
+      top: var(--y, 50%);
+      width: var(--size, 6px);
+      height: var(--size, 6px);
+      border-radius: 1px;
+      opacity: .05;
+      will-change: opacity;
+      animation: blink var(--dur, 5s) ease-in-out var(--delay, 0s) infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(-6deg);
+        opacity: 0;
+      }
+
+      12% {
+        opacity: var(--alpha, .12);
+      }
+
+      50% {
+        transform: translate3d(var(--sway, 30px), -55vh, 0) rotate(var(--spin, 20deg));
+        opacity: var(--alpha, .12);
+      }
+
+      88% {
+        opacity: var(--alpha, .12);
+      }
+
+      100% {
+        transform: translate3d(0, -115vh, 0) rotate(-6deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: .04;
+      }
+
+      50% {
+        opacity: .16;
+      }
+    }
+
+    /* Economia de bateria: animações pausadas com a aba oculta */
+    .gamefield.is-paused .gamefield__item,
+    .gamefield.is-paused .gamefield__pixel {
+      animation-play-state: paused;
+    }
+
+    /* ============================================================
+       4) CONTEÚDO
+       ============================================================ */
+    main {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--maxw);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 34px;
+      margin: auto;
+    }
+
+    /* Avatar circular (container faz a entrada, a imagem flutua) */
+    .avatar {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(160deg, var(--accent) 0%, rgba(79, 179, 255, .08) 70%);
+      box-shadow: 0 0 0 1px var(--btn-border), 0 0 38px var(--glow), var(--shadow);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(5, 9, 20, .9);
+      animation: float 6.5s ease-in-out infinite;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.55rem, 7vw, 1.9rem);
+      font-weight: 600;
+      letter-spacing: .3px;
+      text-align: center;
+      text-shadow: 0 0 26px var(--glow);
+    }
+
+    /* Lista de links */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      min-height: 62px;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--btn-border);
+      background: var(--btn-bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: var(--shadow), 0 0 22px -12px var(--glow);
+      transition: transform .22s ease, background-color .22s ease, border-color .22s ease,
+        box-shadow .22s ease, color .22s ease;
+      will-change: transform;
+    }
+
+    .link__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 26px;
+      height: 26px;
+      color: var(--accent);
+      transition: color .22s ease, transform .22s ease;
+    }
+
+    .link__icon svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .link__label {
+      line-height: 1.2;
+    }
+
+    /* Hover / toque: sobe, brilha mais e o ícone balança */
+    .link:hover,
+    .link:focus-visible {
+      transform: translateY(-3px);
+      background: var(--btn-bg-hover);
+      border-color: var(--btn-border-hover);
+      box-shadow: 0 16px 34px -16px rgba(0, 0, 0, .9), 0 0 34px -6px var(--glow);
+    }
+
+    .link:hover .link__icon,
+    .link:focus-visible .link__icon {
+      color: var(--highlight);
+    }
+
+    .link:hover .link__icon svg,
+    .link:focus-visible .link__icon svg {
+      animation: wiggle .45s ease;
+    }
+
+    .link:active {
+      transform: translateY(-1px) scale(.97);
+      transition-duration: .12s;
+    }
+
+    .link:focus-visible {
+      outline: 2px solid var(--highlight);
+      outline-offset: 3px;
+    }
+
+    /* ---------- Card de e-mail: mesmo visual dos botões ---------- */
+    .link--email {
+      text-align: left;
+      gap: 13px;
+    }
+
+    .link__text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .link__label-sm {
+      font-size: .72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .link__value {
+      font-size: .95rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    .link__hint {
+      margin-top: 2px;
+      font-size: .72rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--accent);
+      transition: color .2s ease;
+    }
+
+    .link__hint.is-copied {
+      color: var(--highlight);
+    }
+
+    footer {
+      margin-top: 6px;
+      font-size: .78rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ============================================================
+       5) ANIMAÇÕES
+       ============================================================ */
+    /* entrada em cascata: fade + subida suave */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: rise .7s cubic-bezier(.22, .61, .36, 1) forwards;
+      animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* flutuação contínua do avatar */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+    /* ondas do fundo se movendo devagar */
+    @keyframes drift {
+      from {
+        transform: translate3d(-2%, -1.5%, 0) scale(1.04);
+      }
+
+      to {
+        transform: translate3d(2%, 1.5%, 0) scale(1.08);
+      }
+    }
+
+    /* balançada discreta do ícone */
+    @keyframes wiggle {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(-9deg);
+      }
+
+      60% {
+        transform: rotate(7deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    /* Acessibilidade: sem movimento para quem prefere menos animação */
+    @media (prefers-reduced-motion: reduce) {
+
+      .reveal,
+      .avatar img,
+      .bg__waves,
+      .link__icon svg {
+        animation: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .link,
+      .link:hover,
+      .link:focus-visible {
+        transition: none;
+      }
+
+      .link:hover,
+      .link:focus-visible {
+        transform: none;
+      }
+
+      .link:active {
+        transform: none;
+        transition: none;
+      }
+
+      .link__hint {
+        transition: none;
+      }
+
+      /* fundo gamer parado, só com opacidade baixa */
+      .gamefield__item,
+      .gamefield__pixel {
+        animation: none !important;
+      }
+
+      .gamefield__item {
+        opacity: var(--alpha, .12);
+      }
+
+      .gamefield__pixel {
+        opacity: .05;
+      }
+    }
+
+    /* Ajustes finos para telas pequenas */
+    @media (max-width: 380px) {
+      .avatar {
+        width: 104px;
+        height: 104px;
+      }
+
+      .link {
+        padding: 14px 16px;
+        gap: 12px;
+        font-size: .95rem;
+      }
+
+      .link__value {
+        font-size: .82rem;
+      }
+    }
+  </style>
+
+  <script>
+    /* habilita as animações só depois que o CSS carregar (evita piscar) */
+    document.documentElement.classList.add("js");
+  </script>
 </head>
 
 <body>
-  <div id="root"></div>
-  <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-  <script type="module" src="/src/main.tsx"></script>
+  <!-- Fundo: ondas topográficas em tons de azul -->
+  <div class="bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g class="bg__waves" fill="none" stroke-linecap="round">
+        <path stroke="#2b7fd4" stroke-width="1.4" opacity=".16"
+          d="M-500 -60 C-220 -95 20 -95 300 -60 C580 -25 820 -25 1100 -60 C1380 -95 1620 -95 1900 -60 C2180 -25 2420 -25 2700 -60" />
+        <path stroke="#4fb3ff" stroke-width="1.3" opacity=".14"
+          d="M-620 18 C-340 -27 -100 -27 180 18 C460 63 700 63 980 18 C1260 -27 1500 -27 1780 18 C2060 63 2300 63 2580 18" />
+        <path stroke="#1f6fbf" stroke-width="1.4" opacity=".18"
+          d="M-740 96 C-460 42 -220 42 60 96 C340 150 580 150 860 96 C1140 42 1380 42 1660 96 C1940 150 2180 150 2460 96" />
+        <path stroke="#7fd8ff" stroke-width="1.2" opacity=".10"
+          d="M-500 174 C-220 110 20 110 300 174 C580 238 820 238 1100 174 C1380 110 1620 110 1900 174 C2180 238 2420 238 2700 174" />
+        <path stroke="#2b7fd4" stroke-width="1.3" opacity=".14"
+          d="M-620 252 C-340 217 -100 217 180 252 C460 287 700 287 980 252 C1260 217 1500 217 1780 252 C2060 287 2300 287 2580 252" />
+        <path stroke="#4fb3ff" stroke-width="1.2" opacity=".12"
+          d="M-740 330 C-460 285 -220 285 60 330 C340 375 580 375 860 330 C1140 285 1380 285 1660 330 C1940 375 2180 375 2460 330" />
+        <path stroke="#1f6fbf" stroke-width="1.4" opacity=".16"
+          d="M-500 408 C-220 354 20 354 300 408 C580 462 820 462 1100 408 C1380 354 1620 354 1900 408 C2180 462 2420 462 2700 408" />
+        <path stroke="#7fd8ff" stroke-width="1.1" opacity=".09"
+          d="M-620 486 C-340 422 -100 422 180 486 C460 550 700 550 980 486 C1260 422 1500 422 1780 486 C2060 550 2300 550 2580 486" />
+        <path stroke="#2b7fd4" stroke-width="1.3" opacity=".14"
+          d="M-740 564 C-460 529 -220 529 60 564 C340 599 580 599 860 564 C1140 529 1380 529 1660 564 C1940 599 2180 599 2460 564" />
+        <path stroke="#4fb3ff" stroke-width="1.2" opacity=".11"
+          d="M-500 642 C-220 597 20 597 300 642 C580 687 820 687 1100 642 C1380 597 1620 597 1900 642 C2180 687 2420 687 2700 642" />
+        <path stroke="#1f6fbf" stroke-width="1.3" opacity=".15"
+          d="M-620 720 C-340 666 -100 666 180 720 C460 774 700 774 980 720 C1260 666 1500 666 1780 720 C2060 774 2300 774 2580 720" />
+        <path stroke="#7fd8ff" stroke-width="1.1" opacity=".09"
+          d="M-740 798 C-460 734 -220 734 60 798 C340 862 580 862 860 798 C1140 734 1380 734 1660 798 C1940 862 2180 862 2460 798" />
+        <path stroke="#2b7fd4" stroke-width="1.2" opacity=".12"
+          d="M-500 876 C-220 841 20 841 300 876 C580 911 820 911 1100 876 C1380 841 1620 841 1900 876 C2180 911 2420 911 2700 876" />
+      </g>
+    </svg>
+  </div>
+  <div class="bg__veil" aria-hidden="true"></div>
+
+  <!-- Camada gamer: os ícones e pixels são gerados por JavaScript -->
+  <div class="gamefield" id="gamefield" aria-hidden="true"></div>
+
+  <main>
+    <!-- Avatar -->
+    <div class="avatar reveal" style="--delay:.05s">
+      <img src="https://cdn.enter.pro/resources/uid_100620147/e56427ab-090b-4f.png" alt="Caio Freitas" />
+    </div>
+
+    <!-- Nome -->
+    <h1 class="reveal" style="--delay:.18s">Caio Freitas</h1>
+
+    <!-- Links -->
+    <ul class="links">
+      <li class="reveal" style="--delay:.3s">
+        <a class="link" href="https://www.youtube.com/@c4feziin" target="_blank" rel="noopener">
+          <span class="link__icon" aria-hidden="true">
+            <!-- YouTube -->
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </span>
+          <span class="link__label">YouTube</span>
+        </a>
+      </li>
+
+      <li class="reveal" style="--delay:.38s">
+        <a class="link" href="https://www.twitch.tv/c4feziin" target="_blank" rel="noopener">
+          <span class="link__icon" aria-hidden="true">
+            <!-- Twitch -->
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z" />
+            </svg>
+          </span>
+          <span class="link__label">Twitch</span>
+        </a>
+      </li>
+
+      <li class="reveal" style="--delay:.46s">
+        <a class="link" href="https://github.com/freitasscaio" target="_blank" rel="noopener">
+          <span class="link__icon" aria-hidden="true">
+            <!-- GitHub -->
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z" />
+            </svg>
+          </span>
+          <span class="link__label">GitHub</span>
+        </a>
+      </li>
+
+      <li class="reveal" style="--delay:.54s">
+        <button type="button" class="link link--email" id="email-card" aria-label="Copiar e-mail">
+          <span class="link__icon" aria-hidden="true">
+            <!-- E-mail -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="2.5" y="4.5" width="19" height="15" rx="3" />
+              <path d="M3.6 7.2 12 13l8.4-5.8" />
+            </svg>
+          </span>
+          <span class="link__text">
+            <span class="link__label-sm">E-mail</span>
+            <span class="link__value" id="email-value"></span>
+            <span class="link__hint" id="email-hint">Toque para copiar</span>
+          </span>
+        </button>
+      </li>
+    </ul>
+
+    <!-- Rodapé -->
+    <footer class="reveal" style="--delay:.68s">© 2026 Caio Freitas</footer>
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* O endereço é montado aqui e escrito na tela pelo JS, assim a
+         hospedagem não esconde nem transforma o e-mail. */
+      var EMAIL = ["contatoc4feziin", "@", "gmail.com"].join("");
+      var HINT_DEFAULT = "Toque para copiar";
+      var HINT_COPIED = "Copiado!";
+
+      var emailCard = document.getElementById("email-card");
+      var emailValue = document.getElementById("email-value");
+      var emailHint = document.getElementById("email-hint");
+      var hintTimer = null;
+
+      if (emailValue) {
+        emailValue.textContent = EMAIL;
+      }
+
+      /* Feedback "Copiado!" por 2 segundos */
+      function showCopied() {
+        if (!emailHint) return;
+        emailHint.textContent = HINT_COPIED;
+        emailHint.classList.add("is-copied");
+        clearTimeout(hintTimer);
+        hintTimer = setTimeout(function () {
+          emailHint.textContent = HINT_DEFAULT;
+          emailHint.classList.remove("is-copied");
+        }, 2000);
+      }
+
+      /* Cópia de reserva (textarea + execCommand) quando a Clipboard API falha */
+      function legacyCopy(text) {
+        var field = document.createElement("textarea");
+        field.value = text;
+        field.setAttribute("readonly", "");
+        field.style.position = "fixed";
+        field.style.top = "-1000px";
+        document.body.appendChild(field);
+        field.select();
+        var ok = document.execCommand("copy");
+        document.body.removeChild(field);
+        if (!ok) throw new Error("copy failed");
+      }
+
+      /* Tenta a Clipboard API e cai no fallback se não funcionar */
+      function copyEmail() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(EMAIL).catch(function () {
+            legacyCopy(EMAIL);
+          });
+        }
+        try {
+          legacyCopy(EMAIL);
+          return Promise.resolve();
+        } catch (err) {
+          return Promise.reject(err);
+        }
+      }
+
+      if (emailCard) {
+        emailCard.addEventListener("click", function () {
+          copyEmail().then(showCopied).catch(function () {
+            /* não deu para copiar: nenhum aviso é mostrado */
+          });
+        });
+      }
+
+      /* ==========================================================
+         FUNDO GAMER
+         Ícones genéricos em SVG inline (linha/outline), sem marcas,
+         personagens ou itens de jogos existentes.
+         ========================================================== */
+      var gamefield = document.getElementById("gamefield");
+
+      var ICON_BLUE = "#4da8ff";
+      var ICON_ORANGE = "#ffb154";
+
+      /* Envolve os caminhos em um SVG de linha que herda a cor do elemento */
+      function icon(paths) {
+        return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
+          'stroke-linecap="round" stroke-linejoin="round">' + paths + "</svg>";
+      }
+
+      /* Letras dos botões A/B/X/Y */
+      function buttonLetter(letter, x, y) {
+        return '<text x="' + x + '" y="' + y + '" text-anchor="middle" dominant-baseline="central" ' +
+          'font-family="Poppins, Arial, sans-serif" font-size="3.6" font-weight="600" ' +
+          'fill="currentColor" stroke="none">' + letter + "</text>";
+      }
+
+      var ICONS = [
+        /* controle de videogame */
+        icon('<path d="M6.8 7.5h10.4a4 4 0 0 1 3.9 3.1l1 4.3a2.4 2.4 0 0 1-4.3 2.1L16.2 15.5H7.8L6.2 17a2.4 2.4 0 0 1-4.3-2.1l1-4.3a4 4 0 0 1 3.9-3.1Z"/>' +
+          '<path d="M9 11v3M7.5 12.5h3"/><circle cx="15.5" cy="11.6" r=".9"/><circle cx="18" cy="13.6" r=".9"/>'),
+        /* joystick de arcade */
+        icon('<circle cx="12" cy="4.8" r="2.1"/><path d="M12 6.9v6.2"/>' +
+          '<path d="M6.8 19.7h10.4v-2.2a1.7 1.7 0 0 0-1.7-1.7H8.5a1.7 1.7 0 0 0-1.7 1.7z"/><path d="M4.5 21.6h15"/>'),
+        /* d-pad */
+        icon('<path d="M9.8 3.5h4.4v6.3h6.3v4.4h-6.3v6.3H9.8v-6.3H3.5V9.8h6.3z"/>'),
+        /* botões A/B/X/Y */
+        icon('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="7.4" r="2.4"/><circle cx="16.6" cy="12" r="2.4"/>' +
+          '<circle cx="12" cy="16.6" r="2.4"/><circle cx="7.4" cy="12" r="2.4"/>' +
+          buttonLetter("Y", 12, 7.4) + buttonLetter("B", 16.6, 12) +
+          buttonLetter("A", 12, 16.6) + buttonLetter("X", 7.4, 12)),
+        /* dado */
+        icon('<rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="8.5" cy="8.5" r="1"/>' +
+          '<circle cx="15.5" cy="8.5" r="1"/><circle cx="12" cy="12" r="1"/>' +
+          '<circle cx="8.5" cy="15.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/>'),
+        /* fone de headset */
+        icon('<path d="M4 14.5v-2a8 8 0 0 1 16 0v2"/><rect x="2.6" y="13.5" width="4.4" height="6.2" rx="2.2"/>' +
+          '<rect x="17" y="13.5" width="4.4" height="6.2" rx="2.2"/><path d="M19.2 19.9v.2a2.2 2.2 0 0 1-2.2 2.2h-3.4"/>'),
+        /* estrela */
+        icon('<path d="M12 3.6l2.6 5.3 5.9.8-4.3 4.1 1 5.9L12 17l-5.2 2.7 1-5.9-4.3-4.1 5.9-.8z"/>'),
+        /* coração de vida */
+        icon('<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/>'),
+        /* moeda */
+        icon('<circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="4.3"/><path d="M12 7.7v8.6"/>'),
+        /* troféu */
+        icon('<path d="M8 3.8h8v5.4a4 4 0 0 1-8 0z"/><path d="M8 5.4H5.4v2A3.1 3.1 0 0 0 8 10.5"/>' +
+          '<path d="M16 5.4h2.6v2A3.1 3.1 0 0 1 16 10.5"/><path d="M12 13.2v4.1"/><path d="M9 20.2h6"/>' +
+          '<path d="M10.4 20.2v-1.2a1.6 1.6 0 0 1 3.2 0v1.2"/>'),
+        /* pixel / quadradinho */
+        icon('<rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/>' +
+          '<rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/>'),
+        /* raio */
+        icon('<path d="M13.2 2.6 5.6 13.4h5.1l-.9 8 7.6-10.8h-5.1z"/>')
+      ];
+
+      function rand(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      /* Monta os ícones e os pixels com posição, tamanho e atraso aleatórios */
+      function buildGamefield() {
+        if (!gamefield) return;
+
+        var small = window.matchMedia("(max-width: 480px)").matches;
+        var iconCount = small ? 12 : 18;
+        var pixelCount = small ? 8 : 14;
+        var offset = Math.floor(rand(0, ICONS.length));
+        var frag = document.createDocumentFragment();
+        var i, el, size, alpha, orange, offsetX;
+
+        for (i = 0; i < iconCount; i++) {
+          /* no celular os ícones ficam um pouco menores e mais discretos */
+          size = Math.round(small ? rand(20, 40) : rand(20, 56));
+          orange = Math.random() < 0.15;
+
+          el = document.createElement("span");
+          el.className = "gamefield__item";
+          el.style.cssText =
+            "--x:" + rand(2, 96).toFixed(2) + "%;" +
+            "--size:" + size + "px;" +
+            "--dur:" + rand(18, 40).toFixed(1) + "s;" +
+            "--delay:-" + rand(0, 34).toFixed(1) + "s;" +
+            "--sway:" + rand(-55, 55).toFixed(0) + "px;" +
+            "--spin:" + rand(-28, 28).toFixed(0) + "deg;" +
+            "--alpha:" + (orange ? 0.1 : small ? rand(0.06, 0.13) : rand(0.08, 0.18)).toFixed(3) + ";" +
+            "color:" + (orange ? ICON_ORANGE : ICON_BLUE) + ";";
+          el.innerHTML = ICONS[(i + offset) % ICONS.length];
+          frag.appendChild(el);
+        }
+
+        for (i = 0; i < pixelCount; i++) {
+          offsetX = rand(2, 97).toFixed(2);
+
+          el = document.createElement("span");
+          el.className = "gamefield__pixel";
+          el.style.cssText =
+            "--x:" + offsetX + "%;" +
+            "--y:" + rand(4, 93).toFixed(2) + "%;" +
+            "--size:" + Math.round(rand(4, 8)) + "px;" +
+            "--dur:" + rand(3, 7).toFixed(1) + "s;" +
+            "--delay:-" + rand(0, 5).toFixed(1) + "s;" +
+            "background:" + (Math.random() < 0.15 ? ICON_ORANGE : ICON_BLUE) + ";";
+          frag.appendChild(el);
+        }
+
+        gamefield.appendChild(frag);
+      }
+
+      buildGamefield();
+
+      /* Pausa as animações do fundo quando a aba está oculta */
+      document.addEventListener("visibilitychange", function () {
+        if (gamefield) {
+          gamefield.classList.toggle("is-paused", document.hidden);
+        }
+      });
+    })();
+  </script>
 </body>
 
 </html>
